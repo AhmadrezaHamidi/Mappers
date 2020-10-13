@@ -1,0 +1,97 @@
+﻿<Window x:Class="BookAndShelve.XmlFile.Librery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookAndShelve.XmlFile"
+        mc:Ignorable="d"
+        Title="Librery" Height="500" Width="1000">
+    <Window.Resources>
+        <Style x:Key="TxtStyles" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Blue" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\10\Desktop\tumblr_n1bfo1kZqI1qmn4wvo1_250.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Button  Name="LibreryButton" Command="{Binding LibarayCommand}"
+                 Grid.ColumnSpan="2" Content="Librery" Grid.Column="0" 
+                 Grid.Row="0" Background="WhiteSmoke" Margin="10" 
+                 FontFamily="Aldhabi" FontSize="28"  />
+        <Button Name="UpdateButton" Command="{Binding UpdateShelveCommand}" Grid.ColumnSpan="2" 
+                Content="Update" Grid.Column="0" Grid.Row="1" 
+                Background="WhiteSmoke" Margin="10" 
+                FontFamily="Aldhabi" FontSize="28"  />
+        <Button Name="DeleteButton" Grid.ColumnSpan="2"
+                Content="Delete" Grid.Column="0"
+                Grid.Row="2" Background="WhiteSmoke" 
+                Margin="10" FontFamily="Aldhabi" FontSize="28"  />
+        <Button Name="AddButton" Grid.ColumnSpan="2" 
+                Content="  Add " Grid.Column="0" Grid.Row="3" 
+                Background="WhiteSmoke" Margin="10" 
+                FontFamily="Aldhabi" FontSize="28"  />
+        
+        
+        
+        <TextBox Style="{StaticResource TxtStyles}"
+                 Grid.Row="4"  Grid.Column="0" 
+                 Text="{Binding SelectedShelve.Name}" Padding="10" 
+                 BorderThickness="1" Margin="5" 
+                 FontFamily="Aldhabi" FontSize="28">
+
+        </TextBox>
+
+        <TextBox Grid.Row="4" Text="{Binding SelectedShelve.Titeel}"  
+                 Grid.Column="1" Margin="5" FontFamily="Aldhabi"
+                 FontSize="28"/>
+
+       
+        
+       
+        
+        
+        <DataGrid Grid.Row="0" Grid.Column="4" 
+                  AutoGenerateColumns="False"
+                  Grid.RowSpan="3" Grid.ColumnSpan="3" 
+                  SelectedItem="{Binding SelectedBook}"
+                  ItemsSource="{Binding Path=Bookes , UpdateSourceTrigger=PropertyChanged}"
+                  Margin="10" Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <DataGrid Grid.Row="3" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="10"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding  SelectedShelve}"
+                  ItemsSource="{Binding Path= Shelves, UpdateSourceTrigger=PropertyChanged}"           
+                  Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Titeel" Binding="{Binding Titeel}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

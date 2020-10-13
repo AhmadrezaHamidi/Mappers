@@ -1,0 +1,43 @@
+﻿<Window x:Class="BookAndShelve.XmlFile.UserAccunt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookAndShelve.XmlFile"
+        mc:Ignorable="d"
+        Title="UserAccunt" Height="480" Width="820">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\10\Desktop\tumblr_n1bfo1kZqI1qmn4wvo1_250.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="800"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="220"/>
+            
+        </Grid.RowDefinitions>
+        <Button x:Name="PofileButton" Content="Profile" 
+                Grid.Row="0" Grid.Column="0" Margin="10,10,10,10"
+                FontFamily="Bahnschrift Condensed"   FontSize="28"
+                Background="WhiteSmoke" Command="{Binding ProfileCommand}"/>
+        <Button x:Name="ShelveButton" Command="{Binding ShelveCommand}" Content="MyShelve" 
+                Grid.Row="1" Grid.Column="0"   Margin="10,10,10,20"
+                FontFamily="Bahnschrift Condensed"  FontSize="28"
+                Background="WhiteSmoke"/>
+        <DataGrid x:Name="DataGridBook" 
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding Path=Shelves, UpdateSourceTrigger=PropertyChanged}" 
+                  Grid.Row="0" Grid.Column="1" 
+                  Margin="10,10,205,-200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Titeel" Binding="{Binding Titeel}"/>
+                <DataGridTextColumn Header="Titeel" Binding="{Binding Titeel}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+    
+</Window>
