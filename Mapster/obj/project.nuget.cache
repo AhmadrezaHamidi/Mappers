@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "BLWAZvSwOsBBi6Xj/amgI7nNRdZAFvwO8hUJUbNONr4BLDuXEz1s/i5V2e8Hh2DGuNK1fH4PyYZAup2RMXpikQ==",
+  "success": true,
+  "projectFilePath": "F:\\UserLibreryWPfV1\\Mapster\\Mapster.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.2.164/NugetServer/Nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

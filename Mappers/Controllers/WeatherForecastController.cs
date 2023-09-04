@@ -27,7 +27,6 @@ public class WeatherForecastController : ControllerBase
         var sourceModel = new SourceAuthoModel("Ahmad", 20);
         var destinationDTO = _mapper.Map<SourceAuthoModel, DestinationAuthoDTO>(sourceModel);
         var ttt = _mapper.Map<DestinationAuthoDTO>(sourceModel);
-        
         return Ok(destinationDTO);
     }
 }
